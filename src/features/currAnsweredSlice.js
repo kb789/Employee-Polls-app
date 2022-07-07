@@ -1,22 +1,19 @@
-import { createSlice } from '@reduxjs/toolkit';
+import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
   isAnswered: false,
 };
 
 const currAnsweredSlice = createSlice({
-  name: 'currAnswer',
+  name: "currAnswer",
   initialState,
   reducers: {
-    makeAnswered: (state, action) => {
-      state.isAnswered = true;
-    },
-    makeUnanswered: (state, action) => {
-      state.isAnswered = false;
+    toggleAnswered: (state, action) => {
+      state.isAnswered = !state.isAnswered;
     },
   },
 });
 
-export const { makeAnswered, makeUnanswered } = currAnsweredSlice.actions;
+export const { toggleAnswered } = currAnsweredSlice.actions;
 
 export default currAnsweredSlice.reducer;

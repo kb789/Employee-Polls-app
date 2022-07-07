@@ -5,13 +5,15 @@ const initialState = {
   currUser: "",
   isLoading: false,
   users: [],
+  currUserQuestions:[],
+  
 };
 
 export const getUsers = createAsyncThunk("users/getUsers", async (thunkAPI) => {
   let res = await _getUsers().then((value) => {
     return value;
   });
-
+  console.log(res);
   return res;
 });
 
@@ -25,6 +27,8 @@ const currUserSlice = createSlice({
     setUser: (state, { payload }) => {
       state.currUser = payload;
     },
+    
+    
   },
   extraReducers: {
     [getUsers.pending]: (state) => {
@@ -32,7 +36,7 @@ const currUserSlice = createSlice({
     },
     [getUsers.fulfilled]: (state, action) => {
       state.isLoading = false;
-      
+
       state.users = action.payload;
     },
     [getUsers.rejected]: (state, action) => {

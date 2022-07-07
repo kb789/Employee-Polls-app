@@ -9,6 +9,7 @@ import Login from "./components/Login";
 import Question from "./components/Question";
 
 import { getQuestions } from "./features/questionsSlice";
+import { getUsers } from "./features/currUserSlice";
 import { useEffect } from "react";
 import { Link } from "react-router-dom";
 
@@ -21,7 +22,9 @@ function App() {
   const dispatch = useDispatch();
 
   useEffect(() => {
+    dispatch(getUsers());
     dispatch(getQuestions());
+    
   }, []);
 
   if (!isLoading && currUser === "") {
@@ -45,7 +48,7 @@ function App() {
         <Route path="/leaderboard" exact element={<Leaderboard />}></Route>
         <Route path="/login" exact element={<Login />}></Route>
 
-        <Route path="/question/:id" element={<Question/>} />
+        <Route path="/question/:id" element={<Question />} />
       </Routes>
     </main>
   );

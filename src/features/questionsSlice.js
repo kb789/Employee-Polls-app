@@ -1,5 +1,5 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
-import { _getQuestions } from "../_DATA.js";
+import { _getQuestions, _saveQuestionAnswer } from "../_DATA.js";
 
 const initialState = {
   isLoadingTwo: false,
@@ -10,6 +10,18 @@ export const getQuestions = createAsyncThunk(
   "questions/getQuestions",
   async (thunkAPI) => {
     let res = await _getQuestions().then((value) => {
+      return value;
+    });
+
+    return res;
+  }
+);
+
+export const saveQuestionAnswer = createAsyncThunk(
+  "question/updateQuestions",
+  async (data, thunkAPI) => {
+    console.log(data);
+    let res = await _saveQuestionAnswer(data).then((value) => {
       return value;
     });
     console.log(res);
@@ -33,14 +45,23 @@ const allQuestionsSlice = createSlice({
       quesKeys.map((quesKey) => {
         return allQuestions.push(action.payload[quesKey]);
       });
+      console.log(allQuestions);
       state.questions = allQuestions;
     },
     [getQuestions.rejected]: (state, action) => {
       state.isLoading = false;
     },
+    [saveQuestionAnswer.pending]: (state) => {
+      console.log("loading");
+    },
+    [saveQuestionAnswer.fulfilled]: (state, action) => {
+      console.log(action.payload);
+     
+    },
+    [saveQuestionAnswer.rejected]: (state, action) => {
+      console.log(action);
+    },
   },
 });
-
-// console.log(cartSlice);
 
 export default allQuestionsSlice.reducer;
