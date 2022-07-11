@@ -1,5 +1,5 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
-import { _getQuestions, _saveQuestionAnswer } from "../_DATA.js";
+import { _getQuestions, _saveQuestionAnswer, _saveQuestion } from "../_DATA.js";
 
 const initialState = {
   isLoadingTwo: false,
@@ -20,11 +20,21 @@ export const getQuestions = createAsyncThunk(
 export const saveQuestionAnswer = createAsyncThunk(
   "question/updateQuestions",
   async (data, thunkAPI) => {
-    console.log(data);
     let res = await _saveQuestionAnswer(data).then((value) => {
       return value;
     });
-    console.log(res);
+
+    return res;
+  }
+);
+
+export const saveQuestion = createAsyncThunk(
+  "question/addQuestion",
+  async (question, thunkAPI) => {
+    let res = await _saveQuestion(question).then((value) => {
+      return value;
+    });
+
     return res;
   }
 );
@@ -40,12 +50,12 @@ const allQuestionsSlice = createSlice({
     [getQuestions.fulfilled]: (state, action) => {
       state.isLoading = false;
       const quesKeys = Object.keys(action.payload);
-      console.log(action.payload);
+
       let allQuestions = [];
       quesKeys.map((quesKey) => {
         return allQuestions.push(action.payload[quesKey]);
       });
-      console.log(allQuestions);
+
       state.questions = allQuestions;
     },
     [getQuestions.rejected]: (state, action) => {
@@ -56,9 +66,18 @@ const allQuestionsSlice = createSlice({
     },
     [saveQuestionAnswer.fulfilled]: (state, action) => {
       console.log(action.payload);
-     
     },
     [saveQuestionAnswer.rejected]: (state, action) => {
+      console.log(action);
+    },
+
+    [saveQuestion.pending]: (state) => {
+      console.log("loading");
+    },
+    [saveQuestion.fulfilled]: (state, action) => {
+      console.log(action.payload);
+    },
+    [saveQuestion.rejected]: (state, action) => {
       console.log(action);
     },
   },

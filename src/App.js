@@ -6,25 +6,23 @@ import Home from "./components/Home";
 import Add from "./components/Add";
 import Leaderboard from "./components/Leaderboard";
 import Login from "./components/Login";
+
 import Question from "./components/Question";
 
 import { getQuestions } from "./features/questionsSlice";
 import { getUsers } from "./features/currUserSlice";
 import { useEffect } from "react";
-import { Link } from "react-router-dom";
 
 function App() {
   const { currUser, isLoading } = useSelector((store) => store.currUser);
-  const { currPage } = useSelector((store) => store.currPage);
 
-  const { isLoadingTwo, questions } = useSelector((store) => store.questions);
+  const { isLoadingTwo } = useSelector((store) => store.questions);
 
   const dispatch = useDispatch();
 
   useEffect(() => {
     dispatch(getUsers());
     dispatch(getQuestions());
-    
   }, []);
 
   if (!isLoading && currUser === "") {
@@ -41,7 +39,6 @@ function App() {
   return (
     <main>
       <Nav />
-
       <Routes>
         <Route path="/" on exact element={<Home />}></Route>
         <Route path="/add" exact element={<Add />}></Route>

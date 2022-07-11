@@ -5,7 +5,7 @@ const initialState = {
   currUser: "",
   isLoading: false,
   users: [],
-  currUserQuestions:[],
+  currUserQuestions: [],
   
 };
 
@@ -13,7 +13,7 @@ export const getUsers = createAsyncThunk("users/getUsers", async (thunkAPI) => {
   let res = await _getUsers().then((value) => {
     return value;
   });
-  console.log(res);
+
   return res;
 });
 
@@ -21,14 +21,13 @@ const currUserSlice = createSlice({
   name: "currUser",
   initialState,
   reducers: {
-    logout: (state) => {
-      state.currUser = [];
-    },
+    
     setUser: (state, { payload }) => {
       state.currUser = payload;
     },
-    
-    
+    getCurrUser: (state, { payload }) => {
+      state.currUser = payload;
+    },
   },
   extraReducers: {
     [getUsers.pending]: (state) => {
@@ -46,6 +45,6 @@ const currUserSlice = createSlice({
 });
 
 // console.log(cartSlice);
-export const { logout, setUser } = currUserSlice.actions;
+export const { setUser } = currUserSlice.actions;
 
 export default currUserSlice.reducer;
