@@ -10,23 +10,24 @@ const Login = () => {
 
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
+  const [loginError, setLoginError] = useState(false);
 
   const handleUsername = (event) => {
     setUsername(event.target.value);
-    console.log(username);
   };
 
   const handlePassword = (event) => {
     setPassword(event.target.value);
-    console.log(password);
   };
 
   const handleSubmit = (event) => {
     event.preventDefault();
 
     if (users[username]["password"] === password) {
-      console.log(users[username]["name"]);
+      setLoginError(false);
       dispatch(setUser(users[username]));
+    } else {
+      setLoginError(true);
     }
   };
 
@@ -39,16 +40,19 @@ const Login = () => {
       <h1 class="font-family: ui-sans-serif text-center text-3xl mb-8 mt-4 font-bold tracking-tight text-gray-900">
         Employee Polls
       </h1>
-      <h1 class="text-center text-xl mb-4">Login</h1>
+      <h1 className="text-center text-xl mb-4">Login</h1>
+      
       <form
         className="mx-auto max-w-md space-y-6 bg-white py-8 px-10 rounded-lg shadow"
         onSubmit={handleSubmit}
       >
+        {loginError ? <h1 className="text-center text-xl mb-4 text-red-500 font-semibold">Error: Incorrect Username/password</h1> : <div></div>}
         Username:
         <input
           type="text"
           name="username"
           id="username"
+          required
           onChange={handleUsername}
           className="block w-full px-3 py-2 mt-6 border border-gray-300 
         rounded-md shadow-sm placeholder-gray-400 focus:outline-none 
@@ -56,9 +60,10 @@ const Login = () => {
         />
         Password:
         <input
-          type="text"
+          type="password"
           name="password"
           id="password"
+          required
           onChange={handlePassword}
           className="block w-full px-3 py-2 border border-gray-300 
         rounded-md shadow-sm placeholder-gray-400 focus:outline-none 

@@ -42,12 +42,15 @@ const Add = () => {
         className="mx-auto max-w-md space-y-6 bg-white py-8 px-10 rounded-lg shadow"
         onSubmit={handleSubmit}
       >
-        <h1 className="text-gray-400 font-bold uppercase text-sm pb-10">Would you rather:</h1>
+        <h1 className="text-gray-400 font-bold uppercase text-sm pb-10">
+          Would you rather:
+        </h1>
         Option One:
         <input
           type="text"
           name="optionOneText"
           id="optionOneText"
+          required
           onChange={handleOptionOne}
           class="block w-full px-3 py-2 border border-gray-300 
        rounded-md shadow-sm placeholder-gray-400 focus:outline-none 
@@ -58,6 +61,7 @@ const Add = () => {
           type="text"
           name="optionTwoText"
           id="optionTwoText"
+          required
           onChange={handleOptionTwo}
           class="block w-full px-3 py-2 border border-gray-300 
           rounded-md shadow-sm placeholder-gray-400 focus:outline-none 

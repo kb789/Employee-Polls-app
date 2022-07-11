@@ -6,6 +6,7 @@ const initialState = {
   isLoading: false,
   users: [],
   currUserQuestions: [],
+ 
   
 };
 
@@ -28,6 +29,7 @@ const currUserSlice = createSlice({
     getCurrUser: (state, { payload }) => {
       state.currUser = payload;
     },
+    
   },
   extraReducers: {
     [getUsers.pending]: (state) => {
@@ -35,7 +37,7 @@ const currUserSlice = createSlice({
     },
     [getUsers.fulfilled]: (state, action) => {
       state.isLoading = false;
-
+      
       state.users = action.payload;
     },
     [getUsers.rejected]: (state, action) => {

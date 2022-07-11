@@ -36,35 +36,14 @@ const Home = () => {
       </div>
       <div class="mt-10 mx-auto text-center max-w-3xl px-10">
         <ul>
-          {questions.map((ques) => {
-            return isAnswered
-              ? (ques.optionOne.votes.includes(currUser.id) ||
-                  ques.optionTwo.votes.includes(currUser.id)) && (
-                  <div class="mb-10 p-8 bg-white border border-gray-200 rounded-2xl shadow-sm flex flex-col">
-                    <p class="mb-6 text-gray-400 uppercase text-sm text-center">
-                      Would you rather
-                    </p>
-                    <li key={ques.id}>
-                      <p class="text-xl font-semibold text-gray-900">
-                        {ques.optionOne.text}{" "}
-                      </p>
-                      <span class="mt-6 text-gray-500">or </span>
-                      <p class="text-xl font-semibold text-gray-900 pb-10">
-                        {ques.optionTwo.text}
-                      </p>
-                      <Link
-                        className="text-cyan-500 bg-white border border-cyan-500 border-2 font-bold rounded mt-4 p-2 py-3 px-4  border-transparent  shadow-sm text-sm hover:text-white hover:bg-cyan-500"
-                        to={"question/" + ques.id}
-                      >
-                        View Your Answer
-                      </Link>
-                    </li>
-                  </div>
-                )
-              : !ques.optionOne.votes.includes(currUser.id) &&
-                  !ques.optionTwo.votes.includes(currUser.id) && (
+          {[...questions]
+            .sort((a, b) => b.timestamp - a.timestamp)
+            .map((ques) => {
+              return isAnswered
+                ? (ques.optionOne.votes.includes(currUser.id) ||
+                    ques.optionTwo.votes.includes(currUser.id)) && (
                     <div class="mb-10 p-8 bg-white border border-gray-200 rounded-2xl shadow-sm flex flex-col">
-                      <p class="mb-6 text-gray-400 uppercase text-sm">
+                      <p class="mb-6 text-gray-400 uppercase text-sm text-center">
                         Would you rather
                       </p>
                       <li key={ques.id}>
@@ -79,12 +58,35 @@ const Home = () => {
                           className="text-cyan-500 bg-white border border-cyan-500 border-2 font-bold rounded mt-4 p-2 py-3 px-4  border-transparent  shadow-sm text-sm hover:text-white hover:bg-cyan-500"
                           to={"question/" + ques.id}
                         >
-                          Answer
+                          View Your Answer
                         </Link>
                       </li>
                     </div>
-                  );
-          })}
+                  )
+                : !ques.optionOne.votes.includes(currUser.id) &&
+                    !ques.optionTwo.votes.includes(currUser.id) && (
+                      <div class="mb-10 p-8 bg-white border border-gray-200 rounded-2xl shadow-sm flex flex-col">
+                        <p class="mb-6 text-gray-400 uppercase text-sm">
+                          Would you rather
+                        </p>
+                        <li key={ques.id}>
+                          <p class="text-xl font-semibold text-gray-900">
+                            {ques.optionOne.text}
+                          </p>
+                          <span class="mt-6 text-gray-500">or </span>
+                          <p class="text-xl font-semibold text-gray-900 pb-10">
+                            {ques.optionTwo.text}
+                          </p>
+                          <Link
+                            className="text-cyan-500 bg-white border border-cyan-500 border-2 font-bold rounded mt-4 p-2 py-3 px-4  border-transparent  shadow-sm text-sm hover:text-white hover:bg-cyan-500"
+                            to={"question/" + ques.id}
+                          >
+                            Answer
+                          </Link>
+                        </li>
+                      </div>
+                    );
+            })}
         </ul>
       </div>
     </div>
