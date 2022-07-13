@@ -1,13 +1,21 @@
 import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { saveQuestion, getQuestions } from "../features/questionsSlice";
+import {
+  saveQuestion,
+  getQuestions,
+  setIsLoadingQues,
+} from "../features/questionsSlice";
 import { getUsers } from "../features/currUserSlice";
+import Home from "./Home";
+import { useNavigate } from "react-router-dom";
 
 const Add = () => {
   const dispatch = useDispatch();
-
+  const navigate = useNavigate();
   const { currUser } = useSelector((store) => store.currUser);
+  const { isLoadingQues } = useSelector((store) => store.questions);
 
+  const [added, setAdded] = useState(false);
   const [optionOne, setOptionOne] = useState("");
   const [optionTwo, setOptionTwo] = useState("");
 
@@ -28,10 +36,18 @@ const Add = () => {
       author: currUser.id,
     };
 
-    dispatch(saveQuestion(question));
-    dispatch(getQuestions());
-    dispatch(getUsers());
+    dispatch(saveQuestion(question)).then((res) => {
+      navigate("/");
+    });
   };
+
+  if (isLoadingQues === true) {
+    return (
+      <div className="loading">
+        <h1>Loading...</h1>
+      </div>
+    );
+  }
 
   return (
     <>

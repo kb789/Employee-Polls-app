@@ -1,6 +1,6 @@
 import { Link, useLocation } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
-import { setUser } from "../features/currUserSlice";
+import { setUser, setUserId } from "../features/currUserSlice";
 
 const Nav = () => {
   const dispatch = useDispatch();
@@ -32,7 +32,7 @@ const Nav = () => {
           Leaderboard
         </Link>
         <span className="px-.5">|</span>
-        <button onClick={() => dispatch(setUser(""))}>
+        <button onClick={() => {dispatch(setUser(""))}}>
           <span className="text-md uppercase text-gray-500 ">Logout</span>
         </button>
       </nav>

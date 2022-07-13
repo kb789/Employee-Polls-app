@@ -2,6 +2,7 @@ import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { setUser } from "../features/currUserSlice";
 import Home from "./Home";
+import Signup from "./Signup";
 
 const Login = () => {
   const dispatch = useDispatch();
@@ -11,6 +12,7 @@ const Login = () => {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [loginError, setLoginError] = useState(false);
+  const [signup, setSignup] = useState(false);
 
   const handleUsername = (event) => {
     setUsername(event.target.value);
@@ -26,13 +28,23 @@ const Login = () => {
     if (users[username]["password"] === password) {
       setLoginError(false);
       dispatch(setUser(users[username]));
+
+      //dispatch(setUser(username));
     } else {
       setLoginError(true);
     }
   };
 
+  const handleSignup = (event) => {
+    setSignup(true);
+  };
+
   if (currUser !== "") {
     return <Home />;
+  }
+
+  if (signup === true) {
+    return <Signup />;
   }
 
   return (
@@ -41,12 +53,18 @@ const Login = () => {
         Employee Polls
       </h1>
       <h1 className="text-center text-xl mb-4">Login</h1>
-      
+
       <form
         className="mx-auto max-w-md space-y-6 bg-white py-8 px-10 rounded-lg shadow"
         onSubmit={handleSubmit}
       >
-        {loginError ? <h1 className="text-center text-xl mb-4 text-red-500 font-semibold">Error: Incorrect Username/password</h1> : <div></div>}
+        {loginError ? (
+          <h1 className="text-center text-xl mb-4 text-red-500 font-semibold">
+            Error: Incorrect Username/password
+          </h1>
+        ) : (
+          <div></div>
+        )}
         Username:
         <input
           type="text"
@@ -75,6 +93,9 @@ const Login = () => {
           className="w-full flex justify-center mt-5 text-white bg-gradient-to-r from-cyan-400 via-cyan-500 to-cyan-600 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-cyan-300 dark:focus:ring-cyan-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2 mb-2 "
         ></input>
       </form>
+      <p>
+        Don't have an account? <button onClick={handleSignup}>Sign up</button>
+      </p>
     </div>
   );
 };

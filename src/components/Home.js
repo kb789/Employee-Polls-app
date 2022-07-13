@@ -1,13 +1,32 @@
 import { useSelector, useDispatch } from "react-redux";
 import { toggleAnswered } from "../features/currAnsweredSlice";
+import { getUsers } from "../features/currUserSlice";
+
+import { getQuestions } from "../features/questionsSlice";
+import { useEffect } from "react";
 
 import { Link } from "react-router-dom";
+
+import React from "react";
 const Home = () => {
-  const { currUser } = useSelector((store) => store.currUser);
-  const { questions } = useSelector((store) => store.questions);
+  const { currUser, isLoadingUsers } = useSelector((store) => store.currUser);
+  const { questions, isLoadingQuestions, } = useSelector((store) => store.questions);
   const { isAnswered } = useSelector((store) => store.currAnswered);
 
   const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(getUsers());
+    dispatch(getQuestions());
+  }, []);
+
+ if (isLoadingUsers || isLoadingQuestions) {
+    return (
+      <div className="loading">
+        
+      </div>
+    );
+  }
 
   return (
     <div py-8 min-h-screen>
@@ -16,7 +35,7 @@ const Home = () => {
       </h1>
       <div className="mt-10 mx-auto text-center max-w-3xl px-10">
         <div className="text-center mb-4">
-          Welcome back,{" "}
+          Welcome,{" "}
           <span class="text-cyan-500 uppercase font-semibold">
             {currUser.name}
           </span>

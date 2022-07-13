@@ -3,7 +3,8 @@ let users = {
     id: "sarahedo",
     password: "password123",
     name: "Sarah Edo",
-    avatarURL: "https://upload.wikimedia.org/wikipedia/commons/7/7e/Kini_iguana.jpg",
+    avatarURL:
+      "https://upload.wikimedia.org/wikipedia/commons/7/7e/Kini_iguana.jpg",
     answers: {
       "8xf0y6ziyjabvozdd253nd": "optionOne",
       "6ni6ok3ym7mf1p33lnez": "optionOne",
@@ -16,7 +17,8 @@ let users = {
     id: "tylermcginnis",
     password: "abc321",
     name: "Tyler McGinnis",
-    avatarURL: "https://upload.wikimedia.org/wikipedia/commons/7/7e/Kini_iguana.jpg",
+    avatarURL:
+      "https://upload.wikimedia.org/wikipedia/commons/7/7e/Kini_iguana.jpg",
     answers: {
       vthrdm985a262al8qx3do: "optionOne",
       xj352vofupe1dqz9emx13r: "optionTwo",
@@ -27,7 +29,8 @@ let users = {
     id: "mtsamis",
     password: "xyz123",
     name: "Mike Tsamis",
-    avatarURL: "https://upload.wikimedia.org/wikipedia/commons/7/7e/Kini_iguana.jpg",
+    avatarURL:
+      "https://upload.wikimedia.org/wikipedia/commons/7/7e/Kini_iguana.jpg",
     answers: {
       xj352vofupe1dqz9emx13r: "optionOne",
       vthrdm985a262al8qx3do: "optionTwo",
@@ -39,7 +42,8 @@ let users = {
     id: "zoshikanlu",
     password: "pass246",
     name: "Zenobia Oshikanlu",
-    avatarURL: "https://upload.wikimedia.org/wikipedia/commons/7/7e/Kini_iguana.jpg",
+    avatarURL:
+      "https://upload.wikimedia.org/wikipedia/commons/7/7e/Kini_iguana.jpg",
     answers: {
       xj352vofupe1dqz9emx13r: "optionOne",
     },
@@ -216,5 +220,34 @@ export function _saveQuestionAnswer({ authedUser, qid, answer }) {
 
       resolve(true);
     }, 500);
+  });
+}
+
+export function _saveUser(user) {
+  return new Promise((resolve, reject) => {
+    /*if (
+      !user.optionOneText ||
+      !user.optionTwoText ||
+      !user.author
+    ) {
+      reject("Please provide optionOneText, optionTwoText, and author");
+    }
+*/
+
+    setTimeout(() => {
+      users = {
+        ...users,
+        [user.id]: {
+          id: user.id,
+          password: user.password,
+          name: user.name,
+          avatarURL: user.avatar,
+          answers: {},
+          questions: [],
+        },
+      };
+
+      resolve(user);
+    }, 1000);
   });
 }
