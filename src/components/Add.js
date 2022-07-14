@@ -49,15 +49,15 @@ const Add = () => {
 
   return (
     <>
-      <h1 className="text-center text-2xl mb-10 pb-5 font-extrabold tracking-tight text-gray-900">
-        Add Employee Poll
+      <h1 className="text-center text-2xl mb-5 pb-5 font-bold tracking-tight text-gray-900">
+      <span className="text-cyan-500 font-bold"> {currUser.name},</span> add a new employee poll
       </h1>
       <form
         className="mx-auto max-w-md space-y-6 bg-white py-8 px-10 rounded-lg shadow"
         onSubmit={handleSubmit}
       >
         <h1 className="text-gray-400 font-bold uppercase text-sm pb-10">
-          Would you rather:
+           Would you rather:
         </h1>
         Option One:
         <input

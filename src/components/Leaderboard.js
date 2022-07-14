@@ -1,7 +1,7 @@
 import { useSelector } from "react-redux";
 
 const Leaderboard = () => {
-  const { users } = useSelector((store) => store.currUser);
+  const { users, currUser } = useSelector((store) => store.currUser);
   const { questions } = useSelector((store) => store.questions);
 
   const getNumQues = (userid) => {
@@ -53,7 +53,7 @@ const Leaderboard = () => {
                     ></img>
                   </li>
                   <li className="mb-2 text-2xl font-medium text-gray-900 dark:text-white">
-                    {user.name}
+                    {currUser.id === user.id ?  <span className="text-cyan-500"> {user.name} (You)</span> : <span> {user.name}</span>}
                   </li>
 
                   <li className="text-sm text-gray-500 dark:text-gray-400">
