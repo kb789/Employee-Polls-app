@@ -1,6 +1,6 @@
 import { Link, useLocation } from "react-router-dom";
-import { useDispatch, useSelector } from "react-redux";
-import { setUser, setUserId } from "../features/currUserSlice";
+import { useDispatch } from "react-redux";
+import { setUser } from "../features/currUserSlice";
 
 const Nav = () => {
   const dispatch = useDispatch();

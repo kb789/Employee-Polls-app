@@ -1,21 +1,19 @@
 import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import {
-  saveQuestion,
-  getQuestions,
-  setIsLoadingQues,
-} from "../features/questionsSlice";
+import { saveQuestion, getQuestions } from "../features/questionsSlice";
 import { getUsers } from "../features/currUserSlice";
-import Home from "./Home";
+
 import { useNavigate } from "react-router-dom";
+import Loading from "./Loading";
 
 const Add = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
-  const { currUser } = useSelector((store) => store.currUser);
-  const { isLoadingQues } = useSelector((store) => store.questions);
+  const { currUser, isLoadingUsers } = useSelector((store) => store.currUser);
+  const { isLoadingQues, isLoadingQuestions } = useSelector(
+    (store) => store.questions
+  );
 
-  const [added, setAdded] = useState(false);
   const [optionOne, setOptionOne] = useState("");
   const [optionTwo, setOptionTwo] = useState("");
 
@@ -37,21 +35,21 @@ const Add = () => {
     };
 
     dispatch(saveQuestion(question)).then((res) => {
-      navigate("/");
+      dispatch(getQuestions()).then(() => {
+        dispatch(getUsers()).then(() => {
+          navigate("/question/" + res.payload.id);
+        });
+      });
     });
   };
 
-  if (isLoadingQues === true) {
-    return (
-      <div className="loading">
-        <h1>Loading...</h1>
-      </div>
-    );
+  if (isLoadingQues || isLoadingQuestions || isLoadingUsers) {
+    return <Loading />;
   }
 
   return (
     <>
-      <h1 class="text-center text-2xl mb-10 pb-5 font-extrabold tracking-tight text-gray-900">
+      <h1 className="text-center text-2xl mb-10 pb-5 font-extrabold tracking-tight text-gray-900">
         Add Employee Poll
       </h1>
       <form
@@ -68,7 +66,7 @@ const Add = () => {
           id="optionOneText"
           required
           onChange={handleOptionOne}
-          class="block w-full px-3 py-2 border border-gray-300 
+          className="block w-full px-3 py-2 border border-gray-300 
        rounded-md shadow-sm placeholder-gray-400 focus:outline-none 
        focus:ring-blue-500 focus:border-blue-500 text-sm"
         />
@@ -79,7 +77,7 @@ const Add = () => {
           id="optionTwoText"
           required
           onChange={handleOptionTwo}
-          class="block w-full px-3 py-2 border border-gray-300 
+          className="block w-full px-3 py-2 border border-gray-300 
           rounded-md shadow-sm placeholder-gray-400 focus:outline-none 
           focus:ring-blue-500 focus:border-blue-500 text-sm"
         />

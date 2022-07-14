@@ -32,16 +32,19 @@ const Leaderboard = () => {
 
   return (
     <div className="py-2 min-h-screen">
-      <h1 class="text-center text-2xl mb-10 font-extrabold tracking-tight text-gray-900">
+      <h1 className="text-center text-2xl mb-10 font-extrabold tracking-tight text-gray-900">
         Leader Board
       </h1>
       {[...getAllUsers()]
         .sort((a, b) => b.numTot - a.numTot)
         .map((user) => {
           return (
-            <div class="mx-auto max-w-xl bg-white rounded-lg border border-gray-200 shadow-md dark:bg-gray-800 dark:border-gray-700">
-              <div class="flex justify-center text-center px-4 pt-4">
-                <ul key={user.id}>
+            <div
+              key={user.id}
+              className="mx-auto max-w-xl bg-white rounded-lg border border-gray-200 shadow-md dark:bg-gray-800 dark:border-gray-700"
+            >
+              <div className="flex justify-center text-center px-4 pt-4">
+                <ul>
                   <li>
                     <img
                       className="mb-3 w-24 h-24 rounded-full shadow-lg mx-auto"
@@ -49,7 +52,7 @@ const Leaderboard = () => {
                       alt="profile"
                     ></img>
                   </li>
-                  <li class="mb-2 text-2xl font-medium text-gray-900 dark:text-white">
+                  <li className="mb-2 text-2xl font-medium text-gray-900 dark:text-white">
                     {user.name}
                   </li>
 

@@ -4,7 +4,7 @@ let users = {
     password: "password123",
     name: "Sarah Edo",
     avatarURL:
-      "https://upload.wikimedia.org/wikipedia/commons/7/7e/Kini_iguana.jpg",
+      "https://upload.wikimedia.org/wikipedia/commons/thumb/b/ba/Cardinalis_cardinalis_2.jpg/440px-Cardinalis_cardinalis_2.jpg",
     answers: {
       "8xf0y6ziyjabvozdd253nd": "optionOne",
       "6ni6ok3ym7mf1p33lnez": "optionOne",
@@ -30,7 +30,7 @@ let users = {
     password: "xyz123",
     name: "Mike Tsamis",
     avatarURL:
-      "https://upload.wikimedia.org/wikipedia/commons/7/7e/Kini_iguana.jpg",
+      "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4f/Bombina_bombina_1_%28Marek_Szczepanek%29_tight_crop.jpg/440px-Bombina_bombina_1_%28Marek_Szczepanek%29_tight_crop.jpg",
     answers: {
       xj352vofupe1dqz9emx13r: "optionOne",
       vthrdm985a262al8qx3do: "optionTwo",
@@ -43,7 +43,7 @@ let users = {
     password: "pass246",
     name: "Zenobia Oshikanlu",
     avatarURL:
-      "https://upload.wikimedia.org/wikipedia/commons/7/7e/Kini_iguana.jpg",
+      "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f7/Tamia_striatus_eating.jpg/440px-Tamia_striatus_eating.jpg",
     answers: {
       xj352vofupe1dqz9emx13r: "optionOne",
     },
@@ -241,7 +241,7 @@ export function _saveUser(user) {
           id: user.id,
           password: user.password,
           name: user.name,
-          avatarURL: user.avatar,
+          avatarURL: user.avatarURL,
           answers: {},
           questions: [],
         },

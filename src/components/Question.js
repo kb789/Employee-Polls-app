@@ -2,16 +2,26 @@ import { useParams } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 
 import { saveQuestionAnswer, getQuestions } from "../features/questionsSlice";
-import { getUsers, setUser } from "../features/currUserSlice";
+import { getUsers } from "../features/currUserSlice";
+import Loading from "./Loading";
+import NotFound from "./NotFound";
 
 const Question = () => {
-  //const { currPage } = useSelector((store) => store.currPage);
   const { id } = useParams();
-  const { currUser, users } = useSelector((store) => store.currUser);
-  const { questions } = useSelector((store) => store.questions);
+  const { currUser, users, isLoadingUsers } = useSelector(
+    (store) => store.currUser
+  );
+  const { questions, isLoadingAns, isLoadingQuestions } = useSelector(
+    (store) => store.questions
+  );
   const dispatch = useDispatch();
 
   const quesIndex = questions.findIndex((ques) => ques.id === id);
+
+  if (quesIndex === -1) {
+    return <NotFound />;
+  }
+
   const quesDate = new Date(questions[quesIndex]["timestamp"]);
   const quesDateFormat =
     quesDate.getMonth() +
@@ -20,10 +30,12 @@ const Question = () => {
     quesDate.getDate() +
     "/" +
     quesDate.getFullYear();
-  console.log(currUser.id);
-  console.log(users);
+
+  if (typeof users[currUser.id] === "undefined") {
+    return <NotFound />;
+  }
+
   const quesAns = users[currUser.id].answers.hasOwnProperty(id);
-  //const quesAns=currUser.answers.hasOwnProperty(id);
 
   const handleChoiceOne = () => {
     const data = {
@@ -53,20 +65,30 @@ const Question = () => {
     });
   };
 
+  if (isLoadingAns || isLoadingQuestions || isLoadingUsers) {
+    return <Loading />;
+  }
+
   if (quesAns) {
     return (
       <div className="py-4 min-h-screen ">
-        <h1 class="text-gray-800 text-xl text-center ">
+        <img
+          className="mb-3 w-24 h-24 rounded-full shadow-lg mx-auto"
+          src={users[questions[quesIndex]["author"]]["avatarURL"]}
+          alt="profile"
+        ></img>
+        <h1 className="text-gray-800 text-xl text-center mb-10 mt-5">
           Poll created by {questions[quesIndex]["author"]} on {quesDateFormat}
         </h1>
-        <div class="mt-10 mx-auto text-left max-w-3xl px-10">
+
+        <div className="mt-10 pt-5 mx-auto text-left max-w-3xl px-10">
           <div className="mb-10 bg-white border border-gray-200 rounded-2xl shadow-sm flex flex-col ">
             <div className="w-full rounded-lg shadow-lg bg-yellow-50 pl-2">
               <p className="text-center pb-10 bg-yellow-50 pt-2 uppercase">
                 Results:
               </p>
-              <ul class="divide-y-2 divide-blue-100 bg-yellow-50 pb-2">
-                <li class="p-3">
+              <ul className="divide-y-2 divide-blue-100 bg-yellow-50 pb-2">
+                <li className="p-3">
                   {questions[quesIndex]["optionOne"]["votes"].length} voter(s) (
                   {Math.round(
                     (questions[quesIndex]["optionOne"]["votes"].length /
@@ -76,7 +98,7 @@ const Question = () => {
                   )}
                   %) would rather {questions[quesIndex]["optionOne"]["text"]}
                 </li>
-                <li class="p-3">
+                <li className="p-3">
                   {questions[quesIndex]["optionTwo"]["votes"].length} voter(s) (
                   {Math.round(
                     (questions[quesIndex]["optionTwo"]["votes"].length /
@@ -86,7 +108,7 @@ const Question = () => {
                   )}
                   %) would rather {questions[quesIndex]["optionTwo"]["text"]}
                 </li>
-                <li class="p-3">
+                <li className="p-3">
                   You would rather{" "}
                   {questions[quesIndex]["optionOne"]["votes"].includes(
                     currUser.id
@@ -115,7 +137,7 @@ const Question = () => {
       <div className="mx-auto text-center">
         <button
           onClick={handleChoiceOne}
-          class="mt-5  text-white bg-gradient-to-r from-cyan-400 via-cyan-500 to-cyan-600 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-cyan-300 dark:focus:ring-cyan-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2 mb-2"
+          className="mt-5  text-white bg-gradient-to-r from-cyan-400 via-cyan-500 to-cyan-600 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-cyan-300 dark:focus:ring-cyan-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2 mb-2"
         >
           Choose
         </button>
@@ -128,7 +150,7 @@ const Question = () => {
       <div className="mx-auto text-center">
         <button
           onClick={handleChoiceTwo}
-          class="mt-5 text-white bg-gradient-to-r from-cyan-400 via-cyan-500 to-cyan-600 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-cyan-300 dark:focus:ring-cyan-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2 mb-2"
+          className="mt-5 text-white bg-gradient-to-r from-cyan-400 via-cyan-500 to-cyan-600 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-cyan-300 dark:focus:ring-cyan-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2 mb-2"
         >
           Choose
         </button>

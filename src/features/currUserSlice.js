@@ -5,7 +5,7 @@ const initialState = {
   currUser: "",
   isLoadingUser: false,
   isLoadingUsers: false,
-
+  isUserSignUp: false,
   users: [],
   currUserQuestions: [],
 };
@@ -22,13 +22,12 @@ export const saveUser = createAsyncThunk(
   "user/saveUser",
   async (user, thunkAPI) => {
     await _saveUser(user);
-    let res = await _getUsers()
-      .then((value) => {
-        return value;
-      });
-   
-    console.log(res[user.id]);
-    return res[user.id];
+    let res = await _getUsers().then((value) => {
+      return value;
+    });
+
+    let response = { newuser: res[user.id], users: res };
+    return response;
   }
 );
 const currUserSlice = createSlice({
@@ -42,9 +41,11 @@ const currUserSlice = createSlice({
       state.currUser = payload;
     },
     setUsers: (state, { payload }) => {
-      state.users=payload;
-    }
-    
+      state.users = payload;
+    },
+    toggleisUserSignUp: (state, action) => {
+      state.isUserSignUp = !state.isUserSignUp;
+    },
   },
   extraReducers: {
     [getUsers.pending]: (state) => {
@@ -66,13 +67,11 @@ const currUserSlice = createSlice({
       state.isLoadingUser = false;
     },
     [saveUser.rejected]: (state, action) => {
-      console.log(action);
       state.isLoadingUser = false;
     },
   },
 });
 
-// console.log(cartSlice);
-export const { setUser } = currUserSlice.actions;
+export const { setUser, toggleisUserSignUp, setUsers } = currUserSlice.actions;
 
 export default currUserSlice.reducer;

@@ -6,7 +6,7 @@ import Home from "./components/Home";
 import Add from "./components/Add";
 import Leaderboard from "./components/Leaderboard";
 import Login from "./components/Login";
-import Signup from "./components/Signup";
+import NotFound from "./components/NotFound";
 
 import Question from "./components/Question";
 
@@ -14,10 +14,12 @@ import { getQuestions } from "./features/questionsSlice";
 import { getUsers } from "./features/currUserSlice";
 import { useEffect } from "react";
 
+
 function App() {
-  
   const { currUser, isLoadingUsers } = useSelector((store) => store.currUser);
-  const { questions, isLoadingQuestions, } = useSelector((store) => store.questions);
+  const { questions, isLoadingQuestions } = useSelector(
+    (store) => store.questions
+  );
 
   const dispatch = useDispatch();
 
@@ -26,22 +28,23 @@ function App() {
     dispatch(getQuestions());
   }, []);
 
-
-  
-  
-  if (!isLoadingUsers &&  currUser === "") {
+  if (currUser === "") {
     return <Login />;
   }
-  
+
+
   return (
     <main>
       <Nav />
       <Routes>
+      <Route path="*" element={<NotFound />} />
         <Route path="/" on exact element={<Home />}></Route>
         <Route path="/add" exact element={<Add />}></Route>
         <Route path="/leaderboard" exact element={<Leaderboard />}></Route>
         <Route path="/login" exact element={<Login />}></Route>
+
         <Route path="/question/:id" element={<Question />}></Route>
+       
       </Routes>
     </main>
   );

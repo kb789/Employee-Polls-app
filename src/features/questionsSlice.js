@@ -1,5 +1,5 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
-import { _getQuestions, _saveQuestionAnswer, _saveQuestion,  } from "../_DATA.js";
+import { _getQuestions, _saveQuestionAnswer, _saveQuestion } from "../_DATA.js";
 
 const initialState = {
   isLoadingQues: false,
@@ -44,9 +44,7 @@ export const saveQuestion = createAsyncThunk(
 const allQuestionsSlice = createSlice({
   name: "allQuestions",
   initialState,
-  reducers: {
-    
-  },
+  reducers: {},
   extraReducers: {
     [getQuestions.pending]: (state) => {
       state.isLoadingQuestions = true;
@@ -64,32 +62,25 @@ const allQuestionsSlice = createSlice({
     },
     [getQuestions.rejected]: (state, action) => {
       state.isLoadingQuestions = false;
-
     },
-
 
     [saveQuestionAnswer.pending]: (state) => {
       state.isLoadingAns = true;
     },
     [saveQuestionAnswer.fulfilled]: (state, action) => {
-      console.log(action.payload);
       state.isLoadingAns = false;
     },
     [saveQuestionAnswer.rejected]: (state, action) => {
-      console.log(action);
       state.isLoadingAns = false;
     },
 
     [saveQuestion.pending]: (state) => {
-      console.log("inprocess");
       state.isLoadingQues = true;
     },
     [saveQuestion.fulfilled]: (state, action) => {
-      console.log(action.payload);
       state.isLoadingQues = false;
     },
     [saveQuestion.rejected]: (state, action) => {
-      console.log(action);
       state.isLoadingQues = false;
     },
   },
