@@ -225,14 +225,9 @@ export function _saveQuestionAnswer({ authedUser, qid, answer }) {
 
 export function _saveUser(user) {
   return new Promise((resolve, reject) => {
-    /*if (
-      !user.optionOneText ||
-      !user.optionTwoText ||
-      !user.author
-    ) {
-      reject("Please provide optionOneText, optionTwoText, and author");
+    if (!user.id || !user.password || !user.name || !user.avatarURL) {
+      reject("Please provide user id, password, name, and avatar url");
     }
-*/
 
     setTimeout(() => {
       users = {

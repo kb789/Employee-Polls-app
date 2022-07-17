@@ -126,14 +126,12 @@ const Question = () => {
   }
   return (
     <div className="mx-auto max-w-md space-y-6 bg-white py-8 px-10 rounded-lg shadow">
-      
-      
       <img
-          className="mb-3 w-14 h-14 rounded-full shadow-lg mx-auto"
-          src={users[questions[quesIndex]["author"]]["avatarURL"]}
-          alt="profile"
-        ></img>
-        <p className="text-gray-400 uppercase text-sm text-center">
+        className="mb-3 w-14 h-14 rounded-full shadow-lg mx-auto"
+        src={users[questions[quesIndex]["author"]]["avatarURL"]}
+        alt="profile"
+      ></img>
+      <p className="text-gray-400 uppercase text-sm text-center">
         Poll created by {questions[quesIndex]["author"]} on {quesDateFormat}
       </p>
       <p className="text-xl pt-6">{currUser.name}, would you rather...</p>

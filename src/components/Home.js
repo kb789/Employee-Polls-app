@@ -43,7 +43,7 @@ const Home = () => {
             onClick={() => dispatch(toggleAnswered())}
           >
             {isAnswered ? (
-              <span>See Unswered Polls</span>
+              <span>See Unanswered Polls</span>
             ) : (
               <span>See Answered Polls</span>
             )}
@@ -55,11 +55,13 @@ const Home = () => {
           {[...questions]
             .sort((a, b) => b.timestamp - a.timestamp)
             .map((ques) => {
-             
               return isAnswered
                 ? (ques.optionOne.votes.includes(currUser.id) ||
                     ques.optionTwo.votes.includes(currUser.id)) && (
-                    <div key={ques.id}className="mb-10 p-8 bg-white border border-gray-200 rounded-2xl shadow-sm flex flex-col">
+                    <div
+                      key={ques.id}
+                      className="mb-10 p-8 bg-white border border-gray-200 rounded-2xl shadow-sm flex flex-col"
+                    >
                       <p className="mb-6 text-gray-400 uppercase text-sm text-center">
                         Would you rather
                       </p>
@@ -82,7 +84,10 @@ const Home = () => {
                   )
                 : !ques.optionOne.votes.includes(currUser.id) &&
                     !ques.optionTwo.votes.includes(currUser.id) && (
-                      <div key={ques.id} className="mb-10 p-8 bg-white border border-gray-200 rounded-2xl shadow-sm flex flex-col">
+                      <div
+                        key={ques.id}
+                        className="mb-10 p-8 bg-white border border-gray-200 rounded-2xl shadow-sm flex flex-col"
+                      >
                         <p className="mb-6 text-gray-400 uppercase text-sm">
                           Would you rather
                         </p>
@@ -103,7 +108,6 @@ const Home = () => {
                         </li>
                       </div>
                     );
-                  
             })}
         </ul>
       </div>

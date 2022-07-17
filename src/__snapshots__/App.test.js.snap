@@ -1,0 +1,550 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`App matches the snapshot when user is logged in 1`] = `
+Object {
+  "asFragment": [Function],
+  "baseElement": <body>
+    <div>
+      <div>
+        <h1
+          class="font-family: ui-sans-serif text-center text-3xl mb-8 mt-4 font-bold tracking-tight text-gray-900"
+        >
+          Employee Polls
+        </h1>
+        <h1
+          class="text-center text-xl mb-4"
+        >
+          Login
+        </h1>
+        <form
+          class="mx-auto max-w-md space-y-6 bg-white py-8 px-10 rounded-lg shadow"
+        >
+          <div />
+          Username:
+          <input
+            class="block w-full px-3 py-2 mt-6 border border-gray-300 
+ rounded-md shadow-sm placeholder-gray-400 focus:outline-none 
+ focus:ring-blue-500 focus:border-blue-500 text-sm mb-4"
+            data-testid="un"
+            id="username"
+            name="username"
+            required=""
+            type="text"
+          />
+          Password:
+          <input
+            class="block w-full px-3 py-2 border border-gray-300 
+ rounded-md shadow-sm placeholder-gray-400 focus:outline-none 
+ focus:ring-blue-500 focus:border-blue-500 text-sm"
+            data-testid="pa"
+            id="password"
+            name="password"
+            required=""
+            type="password"
+          />
+          <input
+            class="w-full flex justify-center mt-5 text-white bg-gradient-to-r from-cyan-400 via-cyan-500 to-cyan-600 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-cyan-300 dark:focus:ring-cyan-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2 mb-2 "
+            data-testid="submit"
+            type="submit"
+            value="Submit"
+          />
+        </form>
+        <p
+          class="text-center text-lg mb-4 mt-6 mr-2"
+        >
+          Don't have an account?
+          <button
+            class="px-2"
+            data-testid="submit2"
+          >
+            <span
+              class="text-cyan-500"
+            >
+               Sign Up
+            </span>
+          </button>
+        </p>
+      </div>
+    </div>
+  </body>,
+  "container": <div>
+    <div>
+      <h1
+        class="font-family: ui-sans-serif text-center text-3xl mb-8 mt-4 font-bold tracking-tight text-gray-900"
+      >
+        Employee Polls
+      </h1>
+      <h1
+        class="text-center text-xl mb-4"
+      >
+        Login
+      </h1>
+      <form
+        class="mx-auto max-w-md space-y-6 bg-white py-8 px-10 rounded-lg shadow"
+      >
+        <div />
+        Username:
+        <input
+          class="block w-full px-3 py-2 mt-6 border border-gray-300 
+ rounded-md shadow-sm placeholder-gray-400 focus:outline-none 
+ focus:ring-blue-500 focus:border-blue-500 text-sm mb-4"
+          data-testid="un"
+          id="username"
+          name="username"
+          required=""
+          type="text"
+        />
+        Password:
+        <input
+          class="block w-full px-3 py-2 border border-gray-300 
+ rounded-md shadow-sm placeholder-gray-400 focus:outline-none 
+ focus:ring-blue-500 focus:border-blue-500 text-sm"
+          data-testid="pa"
+          id="password"
+          name="password"
+          required=""
+          type="password"
+        />
+        <input
+          class="w-full flex justify-center mt-5 text-white bg-gradient-to-r from-cyan-400 via-cyan-500 to-cyan-600 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-cyan-300 dark:focus:ring-cyan-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2 mb-2 "
+          data-testid="submit"
+          type="submit"
+          value="Submit"
+        />
+      </form>
+      <p
+        class="text-center text-lg mb-4 mt-6 mr-2"
+      >
+        Don't have an account?
+        <button
+          class="px-2"
+          data-testid="submit2"
+        >
+          <span
+            class="text-cyan-500"
+          >
+             Sign Up
+          </span>
+        </button>
+      </p>
+    </div>
+  </div>,
+  "debug": [Function],
+  "findAllByAltText": [Function],
+  "findAllByDisplayValue": [Function],
+  "findAllByLabelText": [Function],
+  "findAllByPlaceholderText": [Function],
+  "findAllByRole": [Function],
+  "findAllByTestId": [Function],
+  "findAllByText": [Function],
+  "findAllByTitle": [Function],
+  "findByAltText": [Function],
+  "findByDisplayValue": [Function],
+  "findByLabelText": [Function],
+  "findByPlaceholderText": [Function],
+  "findByRole": [Function],
+  "findByTestId": [Function],
+  "findByText": [Function],
+  "findByTitle": [Function],
+  "getAllByAltText": [Function],
+  "getAllByDisplayValue": [Function],
+  "getAllByLabelText": [Function],
+  "getAllByPlaceholderText": [Function],
+  "getAllByRole": [Function],
+  "getAllByTestId": [Function],
+  "getAllByText": [Function],
+  "getAllByTitle": [Function],
+  "getByAltText": [Function],
+  "getByDisplayValue": [Function],
+  "getByLabelText": [Function],
+  "getByPlaceholderText": [Function],
+  "getByRole": [Function],
+  "getByTestId": [Function],
+  "getByText": [Function],
+  "getByTitle": [Function],
+  "queryAllByAltText": [Function],
+  "queryAllByDisplayValue": [Function],
+  "queryAllByLabelText": [Function],
+  "queryAllByPlaceholderText": [Function],
+  "queryAllByRole": [Function],
+  "queryAllByTestId": [Function],
+  "queryAllByText": [Function],
+  "queryAllByTitle": [Function],
+  "queryByAltText": [Function],
+  "queryByDisplayValue": [Function],
+  "queryByLabelText": [Function],
+  "queryByPlaceholderText": [Function],
+  "queryByRole": [Function],
+  "queryByTestId": [Function],
+  "queryByText": [Function],
+  "queryByTitle": [Function],
+  "rerender": [Function],
+  "unmount": [Function],
+}
+`;
+
+exports[`App matches the snapshot when user not logged in 1`] = `
+Object {
+  "asFragment": [Function],
+  "baseElement": <body>
+    <div>
+      <div>
+        <h1
+          class="font-family: ui-sans-serif text-center text-3xl mb-8 mt-4 font-bold tracking-tight text-gray-900"
+        >
+          Employee Polls
+        </h1>
+        <h1
+          class="text-center text-xl mb-4"
+        >
+          Login
+        </h1>
+        <form
+          class="mx-auto max-w-md space-y-6 bg-white py-8 px-10 rounded-lg shadow"
+        >
+          <div />
+          Username:
+          <input
+            class="block w-full px-3 py-2 mt-6 border border-gray-300 
+ rounded-md shadow-sm placeholder-gray-400 focus:outline-none 
+ focus:ring-blue-500 focus:border-blue-500 text-sm mb-4"
+            data-testid="un"
+            id="username"
+            name="username"
+            required=""
+            type="text"
+          />
+          Password:
+          <input
+            class="block w-full px-3 py-2 border border-gray-300 
+ rounded-md shadow-sm placeholder-gray-400 focus:outline-none 
+ focus:ring-blue-500 focus:border-blue-500 text-sm"
+            data-testid="pa"
+            id="password"
+            name="password"
+            required=""
+            type="password"
+          />
+          <input
+            class="w-full flex justify-center mt-5 text-white bg-gradient-to-r from-cyan-400 via-cyan-500 to-cyan-600 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-cyan-300 dark:focus:ring-cyan-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2 mb-2 "
+            data-testid="submit"
+            type="submit"
+            value="Submit"
+          />
+        </form>
+        <p
+          class="text-center text-lg mb-4 mt-6 mr-2"
+        >
+          Don't have an account?
+          <button
+            class="px-2"
+            data-testid="submit2"
+          >
+            <span
+              class="text-cyan-500"
+            >
+               Sign Up
+            </span>
+          </button>
+        </p>
+      </div>
+    </div>
+  </body>,
+  "container": <div>
+    <div>
+      <h1
+        class="font-family: ui-sans-serif text-center text-3xl mb-8 mt-4 font-bold tracking-tight text-gray-900"
+      >
+        Employee Polls
+      </h1>
+      <h1
+        class="text-center text-xl mb-4"
+      >
+        Login
+      </h1>
+      <form
+        class="mx-auto max-w-md space-y-6 bg-white py-8 px-10 rounded-lg shadow"
+      >
+        <div />
+        Username:
+        <input
+          class="block w-full px-3 py-2 mt-6 border border-gray-300 
+ rounded-md shadow-sm placeholder-gray-400 focus:outline-none 
+ focus:ring-blue-500 focus:border-blue-500 text-sm mb-4"
+          data-testid="un"
+          id="username"
+          name="username"
+          required=""
+          type="text"
+        />
+        Password:
+        <input
+          class="block w-full px-3 py-2 border border-gray-300 
+ rounded-md shadow-sm placeholder-gray-400 focus:outline-none 
+ focus:ring-blue-500 focus:border-blue-500 text-sm"
+          data-testid="pa"
+          id="password"
+          name="password"
+          required=""
+          type="password"
+        />
+        <input
+          class="w-full flex justify-center mt-5 text-white bg-gradient-to-r from-cyan-400 via-cyan-500 to-cyan-600 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-cyan-300 dark:focus:ring-cyan-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2 mb-2 "
+          data-testid="submit"
+          type="submit"
+          value="Submit"
+        />
+      </form>
+      <p
+        class="text-center text-lg mb-4 mt-6 mr-2"
+      >
+        Don't have an account?
+        <button
+          class="px-2"
+          data-testid="submit2"
+        >
+          <span
+            class="text-cyan-500"
+          >
+             Sign Up
+          </span>
+        </button>
+      </p>
+    </div>
+  </div>,
+  "debug": [Function],
+  "findAllByAltText": [Function],
+  "findAllByDisplayValue": [Function],
+  "findAllByLabelText": [Function],
+  "findAllByPlaceholderText": [Function],
+  "findAllByRole": [Function],
+  "findAllByTestId": [Function],
+  "findAllByText": [Function],
+  "findAllByTitle": [Function],
+  "findByAltText": [Function],
+  "findByDisplayValue": [Function],
+  "findByLabelText": [Function],
+  "findByPlaceholderText": [Function],
+  "findByRole": [Function],
+  "findByTestId": [Function],
+  "findByText": [Function],
+  "findByTitle": [Function],
+  "getAllByAltText": [Function],
+  "getAllByDisplayValue": [Function],
+  "getAllByLabelText": [Function],
+  "getAllByPlaceholderText": [Function],
+  "getAllByRole": [Function],
+  "getAllByTestId": [Function],
+  "getAllByText": [Function],
+  "getAllByTitle": [Function],
+  "getByAltText": [Function],
+  "getByDisplayValue": [Function],
+  "getByLabelText": [Function],
+  "getByPlaceholderText": [Function],
+  "getByRole": [Function],
+  "getByTestId": [Function],
+  "getByText": [Function],
+  "getByTitle": [Function],
+  "queryAllByAltText": [Function],
+  "queryAllByDisplayValue": [Function],
+  "queryAllByLabelText": [Function],
+  "queryAllByPlaceholderText": [Function],
+  "queryAllByRole": [Function],
+  "queryAllByTestId": [Function],
+  "queryAllByText": [Function],
+  "queryAllByTitle": [Function],
+  "queryByAltText": [Function],
+  "queryByDisplayValue": [Function],
+  "queryByLabelText": [Function],
+  "queryByPlaceholderText": [Function],
+  "queryByRole": [Function],
+  "queryByTestId": [Function],
+  "queryByText": [Function],
+  "queryByTitle": [Function],
+  "rerender": [Function],
+  "unmount": [Function],
+}
+`;
+
+exports[`App matches the snapshot when user not logged in 2`] = `
+Object {
+  "asFragment": [Function],
+  "baseElement": <body>
+    <div>
+      <div>
+        <h1
+          class="font-family: ui-sans-serif text-center text-3xl mb-8 mt-4 font-bold tracking-tight text-gray-900"
+        >
+          Employee Polls
+        </h1>
+        <h1
+          class="text-center text-xl mb-4"
+        >
+          Login
+        </h1>
+        <form
+          class="mx-auto max-w-md space-y-6 bg-white py-8 px-10 rounded-lg shadow"
+        >
+          <div />
+          Username:
+          <input
+            class="block w-full px-3 py-2 mt-6 border border-gray-300 
+ rounded-md shadow-sm placeholder-gray-400 focus:outline-none 
+ focus:ring-blue-500 focus:border-blue-500 text-sm mb-4"
+            data-testid="un"
+            id="username"
+            name="username"
+            required=""
+            type="text"
+          />
+          Password:
+          <input
+            class="block w-full px-3 py-2 border border-gray-300 
+ rounded-md shadow-sm placeholder-gray-400 focus:outline-none 
+ focus:ring-blue-500 focus:border-blue-500 text-sm"
+            data-testid="pa"
+            id="password"
+            name="password"
+            required=""
+            type="password"
+          />
+          <input
+            class="w-full flex justify-center mt-5 text-white bg-gradient-to-r from-cyan-400 via-cyan-500 to-cyan-600 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-cyan-300 dark:focus:ring-cyan-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2 mb-2 "
+            data-testid="submit"
+            type="submit"
+            value="Submit"
+          />
+        </form>
+        <p
+          class="text-center text-lg mb-4 mt-6 mr-2"
+        >
+          Don't have an account?
+          <button
+            class="px-2"
+            data-testid="submit2"
+          >
+            <span
+              class="text-cyan-500"
+            >
+               Sign Up
+            </span>
+          </button>
+        </p>
+      </div>
+    </div>
+  </body>,
+  "container": <div>
+    <div>
+      <h1
+        class="font-family: ui-sans-serif text-center text-3xl mb-8 mt-4 font-bold tracking-tight text-gray-900"
+      >
+        Employee Polls
+      </h1>
+      <h1
+        class="text-center text-xl mb-4"
+      >
+        Login
+      </h1>
+      <form
+        class="mx-auto max-w-md space-y-6 bg-white py-8 px-10 rounded-lg shadow"
+      >
+        <div />
+        Username:
+        <input
+          class="block w-full px-3 py-2 mt-6 border border-gray-300 
+ rounded-md shadow-sm placeholder-gray-400 focus:outline-none 
+ focus:ring-blue-500 focus:border-blue-500 text-sm mb-4"
+          data-testid="un"
+          id="username"
+          name="username"
+          required=""
+          type="text"
+        />
+        Password:
+        <input
+          class="block w-full px-3 py-2 border border-gray-300 
+ rounded-md shadow-sm placeholder-gray-400 focus:outline-none 
+ focus:ring-blue-500 focus:border-blue-500 text-sm"
+          data-testid="pa"
+          id="password"
+          name="password"
+          required=""
+          type="password"
+        />
+        <input
+          class="w-full flex justify-center mt-5 text-white bg-gradient-to-r from-cyan-400 via-cyan-500 to-cyan-600 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-cyan-300 dark:focus:ring-cyan-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2 mb-2 "
+          data-testid="submit"
+          type="submit"
+          value="Submit"
+        />
+      </form>
+      <p
+        class="text-center text-lg mb-4 mt-6 mr-2"
+      >
+        Don't have an account?
+        <button
+          class="px-2"
+          data-testid="submit2"
+        >
+          <span
+            class="text-cyan-500"
+          >
+             Sign Up
+          </span>
+        </button>
+      </p>
+    </div>
+  </div>,
+  "debug": [Function],
+  "findAllByAltText": [Function],
+  "findAllByDisplayValue": [Function],
+  "findAllByLabelText": [Function],
+  "findAllByPlaceholderText": [Function],
+  "findAllByRole": [Function],
+  "findAllByTestId": [Function],
+  "findAllByText": [Function],
+  "findAllByTitle": [Function],
+  "findByAltText": [Function],
+  "findByDisplayValue": [Function],
+  "findByLabelText": [Function],
+  "findByPlaceholderText": [Function],
+  "findByRole": [Function],
+  "findByTestId": [Function],
+  "findByText": [Function],
+  "findByTitle": [Function],
+  "getAllByAltText": [Function],
+  "getAllByDisplayValue": [Function],
+  "getAllByLabelText": [Function],
+  "getAllByPlaceholderText": [Function],
+  "getAllByRole": [Function],
+  "getAllByTestId": [Function],
+  "getAllByText": [Function],
+  "getAllByTitle": [Function],
+  "getByAltText": [Function],
+  "getByDisplayValue": [Function],
+  "getByLabelText": [Function],
+  "getByPlaceholderText": [Function],
+  "getByRole": [Function],
+  "getByTestId": [Function],
+  "getByText": [Function],
+  "getByTitle": [Function],
+  "queryAllByAltText": [Function],
+  "queryAllByDisplayValue": [Function],
+  "queryAllByLabelText": [Function],
+  "queryAllByPlaceholderText": [Function],
+  "queryAllByRole": [Function],
+  "queryAllByTestId": [Function],
+  "queryAllByText": [Function],
+  "queryAllByTitle": [Function],
+  "queryByAltText": [Function],
+  "queryByDisplayValue": [Function],
+  "queryByLabelText": [Function],
+  "queryByPlaceholderText": [Function],
+  "queryByRole": [Function],
+  "queryByTestId": [Function],
+  "queryByText": [Function],
+  "queryByTitle": [Function],
+  "rerender": [Function],
+  "unmount": [Function],
+}
+`;

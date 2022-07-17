@@ -1,7 +1,6 @@
 import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { saveQuestion, getQuestions } from "../features/questionsSlice";
-import { getUsers } from "../features/currUserSlice";
+import { saveQuestion } from "../features/questionsSlice";
 
 import { useNavigate } from "react-router-dom";
 import Loading from "./Loading";
@@ -35,13 +34,8 @@ const Add = () => {
     };
 
     dispatch(saveQuestion(question)).then((res) => {
-      //dispatch(getQuestions()).then(() => {
-        //dispatch(getUsers()).then(() => {
-          // navigate("/question/" + res.payload.id);
-          navigate("/");
-        });
-      //});
-   // });
+      navigate("/");
+    });
   };
 
   if (isLoadingQues || isLoadingQuestions || isLoadingUsers) {

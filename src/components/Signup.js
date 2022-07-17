@@ -14,8 +14,9 @@ import Loading from "./Loading";
 const Signup = () => {
   const dispatch = useDispatch();
 
-  const { currUser, users, isLoadingUser, isUserSignUp } =
-    useSelector((store) => store.currUser);
+  const { currUser, users, isLoadingUser, isUserSignUp } = useSelector(
+    (store) => store.currUser
+  );
 
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
@@ -59,15 +60,10 @@ const Signup = () => {
           name: fullname,
           avatarURL: avatar,
         })
-      )
-        .then((response) => {
-          
-          dispatch(setUsers(response.payload.users));
-          dispatch(setUser(response.payload.newuser));
-         
-        })
-        
-         
+      ).then((response) => {
+        dispatch(setUsers(response.payload.users));
+        dispatch(setUser(response.payload.newuser));
+      });
     }
   };
 
@@ -108,6 +104,7 @@ const Signup = () => {
           id="username"
           required
           onChange={handleUsername}
+          data-testid="un"
           className="block w-full px-3 py-2 mt-6 border border-gray-300 
             rounded-md shadow-sm placeholder-gray-400 focus:outline-none 
             focus:ring-blue-500 focus:border-blue-500 text-sm mb-4"
@@ -118,6 +115,7 @@ const Signup = () => {
           name="password"
           id="password"
           required
+          data-testid="pa"
           onChange={handlePassword}
           className="block w-full px-3 py-2 border border-gray-300 
             rounded-md shadow-sm placeholder-gray-400 focus:outline-none 
@@ -128,6 +126,7 @@ const Signup = () => {
           type="text"
           name="fullname"
           id="fullname"
+          data-testid="fn"
           required
           onChange={handleFullname}
           className="block w-full px-3 py-2 mt-6 border border-gray-300 
@@ -141,6 +140,7 @@ const Signup = () => {
           id="avatar"
           required
           onChange={handleAvatar}
+          data-testid="av"
           className="block w-full px-3 py-2 mt-6 border border-gray-300 
             rounded-md shadow-sm placeholder-gray-400 focus:outline-none 
             focus:ring-blue-500 focus:border-blue-500 text-sm mb-4"
@@ -148,6 +148,7 @@ const Signup = () => {
         <input
           type="submit"
           value="Submit"
+          data-testid="su"
           className="w-full flex justify-center mt-5 text-white bg-gradient-to-r from-cyan-400 via-cyan-500 to-cyan-600 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-cyan-300 dark:focus:ring-cyan-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2 mb-2 "
         ></input>
       </form>
