@@ -15,17 +15,14 @@ import { getUsers } from "./features/currUserSlice";
 import { useEffect } from "react";
 
 function App() {
-  const { currUser, isLoadingUsers } = useSelector((store) => store.currUser);
-  const { questions, isLoadingQuestions } = useSelector(
-    (store) => store.questions
-  );
+  const { currUser } = useSelector((store) => store.currUser);
 
   const dispatch = useDispatch();
 
   useEffect(() => {
     dispatch(getUsers());
     dispatch(getQuestions());
-  }, []);
+  }, [dispatch]);
 
   if (currUser === "") {
     return <Login />;
