@@ -75,7 +75,7 @@ const Home = () => {
                         </p>
                         <Link
                           className="text-cyan-500 bg-white border border-cyan-500 border-2 font-bold rounded mt-4 p-2 py-3 px-4  border-transparent  shadow-sm text-sm hover:text-white hover:bg-cyan-500"
-                          to={"question/" + ques.id}
+                          to={"questions/" + ques.id}
                         >
                           View Your Answer
                         </Link>
@@ -101,7 +101,7 @@ const Home = () => {
                           </p>
                           <Link
                             className="text-cyan-500 bg-white border border-cyan-500 border-2 font-bold rounded mt-4 p-2 py-3 px-4  border-transparent  shadow-sm text-sm hover:text-white hover:bg-cyan-500"
-                            to={"question/" + ques.id}
+                            to={"questions/" + ques.id}
                           >
                             Answer
                           </Link>

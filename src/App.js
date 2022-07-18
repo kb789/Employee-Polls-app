@@ -14,7 +14,6 @@ import { getQuestions } from "./features/questionsSlice";
 import { getUsers } from "./features/currUserSlice";
 import { useEffect } from "react";
 
-
 function App() {
   const { currUser, isLoadingUsers } = useSelector((store) => store.currUser);
   const { questions, isLoadingQuestions } = useSelector(
@@ -32,19 +31,17 @@ function App() {
     return <Login />;
   }
 
-
   return (
     <main>
       <Nav />
       <Routes>
-      <Route path="*" element={<NotFound />} />
+        <Route path="*" element={<NotFound />} />
         <Route path="/" on exact element={<Home />}></Route>
         <Route path="/add" exact element={<Add />}></Route>
         <Route path="/leaderboard" exact element={<Leaderboard />}></Route>
         <Route path="/login" exact element={<Login />}></Route>
 
-        <Route path="/question/:id" element={<Question />}></Route>
-       
+        <Route path="/questions/:id" element={<Question />}></Route>
       </Routes>
     </main>
   );
