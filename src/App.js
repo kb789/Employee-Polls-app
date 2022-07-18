@@ -41,7 +41,7 @@ function App() {
         <Route path="/leaderboard" exact element={<Leaderboard />}></Route>
         <Route path="/login" exact element={<Login />}></Route>
 
-        <Route path="/questions/:id" element={<Question />}></Route>
+        <Route path="/questions/:question_id" element={<Question />}></Route>
       </Routes>
     </main>
   );
