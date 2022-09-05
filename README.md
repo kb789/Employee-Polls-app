@@ -1,8 +1,6 @@
 # Employee Polls
 
-## Live Site
-
-[Employee Polls](https://regal-lokum-b3446e.netlify.app/)
+## [Employee Polls](https://regal-lokum-b3446e.netlify.app/)
 
 ## Description
 
