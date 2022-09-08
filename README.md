@@ -2,7 +2,7 @@
 
 ## URL to live site: 
 
-[https://regal-lokum-b3446e.netlify.app](https://62f9c18dd35b2b721f7f8a30--ephemeral-treacle-8f3661.netlify.app/ )
+[https://regal-lokum-b3446e.netlify.app](https://regal-lokum-b3446e.netlify.app )
 
 ## Description
 
